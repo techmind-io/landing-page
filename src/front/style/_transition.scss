@@ -1,0 +1,22 @@
+$defaultDuration: 0.2s;
+$longDuration: 0.4s;
+$veryLongDuration: 10s;
+
+$defaultFunction: linear;
+
+@mixin transition($properties) {
+  -webkit-transition: $properties;
+  -o-transition: $properties;
+  -moz-transition: $properties;
+  transition: $properties;
+}
+
+@mixin transform($properties) {
+  -webkit-transform: $properties;
+  -moz-transform: $properties;
+  transform: $properties;
+}
+
+@mixin transitionAll($duration) {
+  @include transition(all $defaultFunction $duration);
+}

@@ -1,0 +1,720 @@
+@import 'colors';
+@import 'fonts';
+@import 'responsive';
+@import 'transition';
+@import 'section';
+@import 'button';
+
+@mixin noSelect {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  //background: $background !important;
+  //color: $foreground !important;
+  @include font;
+  height: 100%;
+  @include linearGradient(-135deg, $darkBlue, $black);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+
+}
+
+body {
+  height: 100%;
+  position: relative;
+  @include font;
+
+  // @include radialGradient(top right, $blue, $black);
+
+}
+
+strong {
+  color: $foreground;
+  font-weight: normal;
+}
+
+p.small {
+  // font-size: 0.8em;
+}
+
+
+
+.welcome {
+  position: relative;
+  // min-height: 100%;
+
+  &-background {
+    // background: url('/img/eye.png');
+    // background-size: contain;
+    // background-position: center center;
+    // background-repeat: no-repeat;
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.09;
+    z-index: 10;
+    // box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
+
+  }
+
+  &-title {
+    position: relative;
+    color: $foreground;
+    @include fontTitle;
+    font-size: 8em;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+
+  &-container {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 5;
+
+    &-title {
+      position: relative;
+      top: 690px;
+    }
+  }
+
+  &-subtitle {
+    @include fontTitle;
+    color: $foreground;
+    margin: 0;
+    padding: 0;
+    font-size: 1.9em;
+    font-weight: normal;
+  }
+
+  &-button {
+    margin-top: 30px;
+  }
+
+  &-center {
+    text-align: center;
+  }
+}
+
+.technologies {
+  // height: 75%;
+  //
+  &-left {
+    position: relative;
+    overflow: hidden;
+    &-content {
+      position: relative;
+      top: 0;
+      right: 100%;
+    }
+  }
+  &-right {
+    position: relative;
+    // height: 100%;
+    height: 500px;
+    overflow: hidden;
+
+    &-background {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
+      background: url('/img/crowd.png');
+      background-size: cover;
+    }
+  }
+}
+
+.techmind {
+  position: relative;
+  &-center {
+    position: relative;
+    max-width: 700px;
+    top: 800px;
+    opacity: 0;
+    // font-size: 0.9em;
+    strong {
+      color: $foreground;
+    }
+  }
+
+  &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.accessible {
+  &-right {
+    position: relative;
+    overflow: hidden;
+    &-content {
+      position: relative;
+      top: 0;
+      left: 100%;
+    }
+  }
+
+  &-left {
+    justify-content: center;
+  }
+
+  &-schema {
+    // height: 400px;
+    // width: 400px;
+  }
+}
+
+.reliable {
+  &-left {
+    position: relative;
+    overflow: hidden;
+    &-content {
+      position: relative;
+      top: 0;
+      right: 100%;
+    }
+  }
+
+  &-right {
+    justify-content: center;
+  }
+}
+
+.articles {
+
+  &-center {
+    padding: 0px!important;
+    padding-top: 20px!important;
+  }
+
+  &-subscribe {
+    position: relative;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    @include transition(background-color linear 0.3s);
+
+    &-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: none;
+      opacity: 0;
+      $arg: opacity linear 0.3s, color linear 0.3s, transform linear 0.1s;
+      @include transition($arg);
+      font-size: 1.3em;
+      color: $foreground_hue2;
+      cursor: pointer;
+      z-index: 100;
+      transform: rotate(0deg);
+
+      &:hover {
+        color: $foreground;
+        transform: rotate(90deg);
+      }
+    }
+
+
+    &.activated {
+      background-color: darken($darkBlue, 7%);
+      z-index: 20;
+    }
+
+    &.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &.activated &-close {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  &-list {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-direction: row;
+      padding-top: 30px;
+      position: relative;
+  }
+
+  &-item {
+    position: relative;
+    z-index: 5;
+    opacity: 1;
+    $arg: opacity linear 0.5s, flex-basis linear 0.5s;
+    @include transition($arg);
+    overflow: hidden;
+
+    &-form {
+      font-size: 0.6em;
+      flex: 0 0 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      opacity: 0;
+
+      $arg: opacity linear 0.5s, flex-basis linear 0.5s;
+      @include transition($arg);
+
+      &.activated {
+        flex-basis: 300px;
+      }
+
+      &.show {
+        opacity: 1;
+      }
+
+      &-content {
+        flex: 0 0 300px;
+        width: 300px;
+        text-align: left;
+
+        .button {
+          margin-top: 20px;
+        }
+
+        .input, .textarea {
+          border: 2px solid $foreground_hue2;
+          border-radius: 4px;
+          background: transparent;
+          @include fontTitle;
+          resize: none;
+          display: block;
+          box-sizing: border-box;
+          padding: 10px;
+          margin-top: 20px;
+          color: white;
+          width: 100%;
+          outline: none;
+          background: rgba(0, 0, 0, 0.2);
+          @include transition(background linear 0.5s);
+
+          &:focus {
+            background: rgba(0, 0, 0, 0.4);
+          }
+        }
+
+        .checkbox {
+          margin-top: 20px;
+          color: $foreground;
+          font-weight: normal;
+          font-size: 0.9em;
+          cursor: pointer;
+          &-box {
+            border: 2px solid $foreground;
+            display: inline-block;
+            $width: 10px;
+            width: $width;
+            height: $width;
+            display: inline-block;
+            margin-right: 5px;
+
+            background: transparent;
+            @include transition(background linear 0.5s);
+
+            &.activated {
+              background: $foreground;
+            }
+          }
+        }
+
+        .textarea {
+          height: 100px;
+        }
+
+      }
+
+      // &.activator
+      &-separator {
+        margin: 0px 20px;
+        width: 30px;
+        height: 2px;
+        display: inline-block;
+        vertical-align: middle;
+        background: $blue_hue1;
+      }
+    }
+
+    &.activated {
+      z-index: 30;
+      // position: fixed;
+    }
+    &.hiding {
+      opacity: 0;
+    }
+
+    &.hide {
+      flex-basis: 0px;
+      // margin-left: 0px;
+      // margin-right: 0px;
+    }
+
+    // border: 1px solid $foreground;
+
+    $height: 500px;
+    height: $height;
+    color: $foreground_hue2;
+    padding: 0px;
+
+
+    flex: 0 1 330px;
+
+    &-margin {
+      margin: 0px 30px;
+      box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    &-content {
+      box-sizing: border-box;
+      padding: 30px;
+      height: $height;
+
+      background: rgba(0, 0, 0, 0);
+      @include transition(linear background-color 0.3s);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 0.9em;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &:not(.activated) &-content {
+      cursor: pointer;
+      &:hover {
+        background: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &-title {
+      font-weight: normal;
+      color: $foreground;
+      text-transform: uppercase;
+      @include font;
+    }
+
+    &-1 {
+      background: url('/img/blockchain.png');
+      background-size: cover;
+      background-position: center center;
+    }
+
+    &-2 {
+      background: url('/img/sans-contact-carte-bleue.jpg');
+      background-size: cover;
+      background-position: center center;
+    }
+
+    &-3 {
+      background: url('/img/machine-learning.jpg');
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+}
+
+.footer {
+  padding-top: 400px;
+  padding-bottom: 50px;
+  color: $foreground;
+  // text-transform: uppercase;
+  text-align: center;
+}
+
+
+/*
+
+.welcome {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+  }
+
+  &-title {
+    position: relative;
+    color: $foreground;
+    @include fontTitle;
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+    z-index: 10;
+    // text-transform: uppercase;
+  }
+}
+
+.lang-selector {
+  @include only(medium) {
+    position: absolute;
+    top: 0;
+    right: 100px;
+    padding: 2px 15px;
+    // border-width: 0px 1px 1px 1px;
+    // border-style: solid;
+    // border-color: $foreground;
+    z-index: 4;
+    color: darken($foreground, 30%);
+    cursor: pointer;
+
+    @include transition($defaultFunction $defaultDuration color);
+
+    &:hover {
+      color: $foreground;
+    }
+  }
+  // background: $background;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0px;
+  flex-direction: column;
+  @include font;
+  text-align: center;
+
+
+  &-center {
+    max-width: 700px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px;
+
+    &-large {
+      max-width: 900px;
+    }
+  }
+
+  &-part {
+    flex: 0 0 25%;
+    font-size: 1.1em;
+
+    &-list {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: row;
+      padding: 30px 0px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+    &-text {
+      padding: 10px;
+    }
+  }
+
+  &-three {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    $height: 500px;
+    height: $height;
+    flex: 1 1 auto;
+    width: 100%;
+    overflow: hidden;
+
+    @include only(xsmall) {
+      flex-direction: column;
+    }
+
+    &-part {
+      flex: 1 1 auto;
+      overflow: hidden;
+      position: relative;
+
+      $duration: 0.25s;
+
+      &-inner {
+        background: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+
+        @include transitionAll($duration);
+
+        &-augmentations {
+          background: url('/img/augmentations-2.jpg');
+          background-position: center center;
+          background-size: cover;
+        }
+
+        &-car-concept {
+          background: url('/img/car-concept-2.jpg');
+          background-position: center center;
+          background-size: cover;
+        }
+
+        &-ai {
+          background: url('/img/ida.png');
+          background-position: left center;
+          background-size: cover;
+        }
+      }
+
+      &:hover &-inner {
+        @include transform(scale(1.1));
+      }
+
+      &-title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 10%;
+        z-index: 20;
+        background: rgba(0, 0, 0, 0.7);
+        color: $foreground;
+        text-align: center;
+        @include transitionAll($duration);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        flex-direction: column;
+      }
+
+      &:hover &-title {
+        height: 100%;
+      }
+
+      &-subtitle {
+        height: 0px;
+        color: $foreground_hue1;
+        max-width: 70%;
+        opacity: 0;
+        @include transitionAll($duration);
+        line-height: 1.2em;
+        // font-size: 0.9em;
+      }
+
+      &:hover &-subtitle {
+        opacity: 1;
+      }
+
+    }
+  }
+
+  &-machine {
+    background: url('/img/crowd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 200px;
+  }
+
+  h2 {
+    @include font;
+    color: $foreground;
+    font-size: 1.4em;
+  }
+
+  p {
+    color: $foreground_hue1;
+
+    &.important {
+      color: $foreground;
+      font-size: 1.1em;
+    }
+  }
+
+  &-light {
+    background: $light;
+    color: $dark_hue1;
+
+    p.important {
+      color: $dark;
+      font-weight: 500 !important;
+    }
+  }
+
+}
+
+
+
+.footer {
+  text-align: center;
+  color: $foreground;
+  @include font;
+  padding: 10px;
+  position: relative;
+
+  &-icon {
+    position: relative;
+    top: -2px;
+
+  }
+}
+
+.tooltip-cookies {
+  // height: 70px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $blue;
+  color: $foreground;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &-label {
+    flex: 1 1 auto;
+    font-size: 0.85em;
+  }
+
+  &-close {
+    cursor: pointer;
+  }
+}*/

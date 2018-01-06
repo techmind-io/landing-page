@@ -1,0 +1,14 @@
+@mixin font {
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 300;
+}
+
+@mixin fontTitle {
+  font-family: 'Didact Gothic', sans-serif;
+  font-smooth: always;
+  -moz-osx-font-smoothing: grayscale;
+  // -webkit-text-stroke: 0.1px;
+  -webkit-font-smoothing: antialiased;
+  // font-weight: bold;
+
+}

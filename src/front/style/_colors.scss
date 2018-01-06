@@ -1,0 +1,40 @@
+/*
+$dark: #100f11;
+$dark_hue1: lighten($dark, 30%);
+
+$light: white;
+$light_hue1: darken($light, 40%);
+
+$blue: #1e87f0;
+
+$background: $dark;
+$foreground: $light;
+$foreground_hue1: $light_hue1;
+*/
+
+$foreground: white;
+$foreground_hue1: darken($foreground, 50%);
+$foreground_hue2: darken($foreground, 20%);
+
+$blue: rgb(33, 150, 243); // #226aff; // #1761d5; // darken(#2d9ee0, 20%);
+$blue_hue1: darken($blue, 20%); 
+
+$red: #FF3367;
+$darkBlue: #151a22;
+$black: #000000;
+
+@mixin linearGradient($angle, $colorBegin, $colorEnd) {
+  background: $colorBegin; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($angle, $colorBegin, $colorEnd); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($angle, $colorBegin, $colorEnd); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($angle, $colorBegin, $colorEnd); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($angle, $colorBegin, $colorEnd); /* Standard syntax */
+}
+
+@mixin radialGradient($position, $colorBegin, $colorEnd) {
+  background: $colorBegin; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient($position, $colorBegin, $colorEnd); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient($position, $colorBegin, $colorEnd); /* For Opera 11.1 to 12.0 */
+  background: -moz-radial-gradient($position, $colorBegin, $colorEnd); /* For Firefox 3.6 to 15 */
+  background: radial-gradient($position, $colorBegin, $colorEnd); /* Standard syntax */
+}

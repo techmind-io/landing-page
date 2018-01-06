@@ -1,0 +1,53 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "landing for techmind.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp sass:watch & babel-node src/server/server.js",
+    "build": "babel src/server/ --out-dir dist/server && gulp sass && gulp build-templates",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/techmind-io/landing-page.git"
+  },
+  "author": "Thibault Friedrich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/techmind-io/landing-page/issues"
+  },
+  "homepage": "https://github.com/techmind-io/landing-page#readme",
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "~6.14.0",
+    "babel-eslint": "~6.1.2",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-plugin-transform-regenerator": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2017": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-todo": "^5.3.0",
+    "gulp-util": "^3.0.8"
+  },
+  "dependencies": {
+    "consolidate": "^0.14.5",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "handlebars": "^4.0.11",
+    "swig": "^1.4.2",
+    "winston": "^2.4.0"
+  }
+}

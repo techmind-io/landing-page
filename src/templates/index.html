@@ -1,0 +1,362 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- <div class="lang-selector">
+  FR <span uk-icon="icon: triangle-down; ratio: 0.95"></span>
+</div> -->
+
+<div class="welcome" id="welcome">
+  <div class="welcome-background" id="welcome-background"></div>
+  <div class="welcome-container">
+    <div class="welcome-container-title" id="welcome-title">
+      <h1 class="welcome-title">Techmind</h1>
+      <h2 class="welcome-subtitle">Comprendre les nouvelles technologies<br> qui nous entourent.</h2>
+      <div class="welcome-center">
+        <button class="button welcome-button" id="subscribe">S'inscrire à la newsletter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="section technologies" id="technologies">
+  <div class="section-left technologies-left">
+    <div class="section-left-content technologies-left-content" id="technologies-left-content">
+      <h2 class="section-title">
+        Des technologies omniprésentes
+      </h2>
+      <p>
+        Les nouvelles technologies comme le <strong>big data</strong>, l’<strong>intelligence artificielle</strong> ou encore les <strong>objets connectés</strong> ont de plus en plus d’impact sur nos vie.
+      </p>
+      <p>
+        Et pourtant, de part leur complexité, il est de plus en plus difficile de comprendre leurs implications.
+      </p>
+    </div>
+  </div>
+  <div class="section-right technologies-right">
+    <div class="technologies-right-background" id="background">
+
+    </div>
+  </div>
+  <!--<div class="section-center" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <h2>Plus en plus d'impact</h2>
+    <p>
+      Les nouvelles technologies comme la robotique, l’intelligence artificielle ou encore les objets connectés ont de plus en plus d’impact sur nos vie.
+    </p>
+    <p>
+      Et quoique nous fassions, nos voisins, notre entreprise, notre gouvernement les utilisent et ainsi ces technologies continuent à influencer nos vies.
+    </p>
+  </div>-->
+</section>
+<!--
+<section class="section" id="important">
+  <div class="section-center">
+    <h2 class="section-title">
+      Rester maître de son futur
+    </h2>
+    <div class="section-list">
+      <div class="section-item" id="important-1">
+        <span class="lnr lnr-question-circle section-item-icon"></span>
+        <h3 class="section-item-title">comprendre</h3> le monde qui nous entoure
+      </div>
+      <div class="section-item" id="important-2">
+        <span class="lnr lnr-eye section-item-icon"></span>
+        <h3 class="section-item-title">rester vigilant</h3>
+        en toute circonstance
+      </div>
+      <div class="section-item" id="important-3">
+        <span class="lnr lnr-thumbs-up section-item-icon"></span>
+        <h3 class="section-item-title">embrasser les perspectives</h3>
+        lorsqu'elles nous paraissent justes
+      </div>
+      <div class="section-item" id="important-4">
+        <span class="lnr lnr-sad section-item-icon"></span>
+        <h3 class="section-item-title">s'élever</h3>
+        contre les choix qui nous paraissent dangereux
+      </div>
+    </div>
+  </div>
+</section>-->
+<section class="section techmind" id="techmind">
+  <div class="section-background techmind-background"></div>
+  <div class="section-center techmind-center" id="techmind-center">
+    <h2 class="section-title">
+      Un moyen fiable de rester à jour
+    </h2>
+    <p><strong>Techmind</strong> vous propose des articles de <strong>qualité</strong>, <strong>critiques</strong> et <strong>documentés</strong>
+      pour vous faire découvrir les derniers progrès technologiques, leurs usages et leurs <strong>conséquences</strong>
+      sur notre société.
+    </p>
+    <p>
+      En comprenant ces technologies et leurs aboutissants, vous pourrez ainsi mieux choisir celles qui
+      correspondent à votre <strong>choix de vie, de société</strong>.
+    </p>
+  </div>
+</section>
+
+<section class="section accessible" id="accessible">
+  <div class="section-left accessible-left">
+    <div class="accessible-schema" id="accessible-svg"></div>
+  </div>
+  <div class="section-right accessible-right">
+    <div class="section-right-content accessible-right-content" id="accessible-right-content">
+      <h2 class="section-title">
+        Accessible à tous
+      </h2>
+      <p>
+        Grâce à une approche <strong>progressive</strong>, chaque article proposera différents <strong>niveaux de lecture</strong> et
+        permettra à tout un chacun de comprendre les problématiques qui nous concernent tous tout en <strong>approfondissant
+        pour les plus curieux</strong>.
+      </p>
+      <p>
+        À vous de choisir jusqu'où lire l'article.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="section reliable" id="reliable">
+  <div class="section-left reliable-left">
+    <div class="section-left-content reliable-left-content" id="reliable-left-content">
+      <h2 class="section-title">
+        Fiable et vérifié
+      </h2>
+      <p>
+        Pour chaque article, nous irons chercher des <strong>experts qualifiés</strong> qui assureront la fiabilité des faits.
+      </p>
+      <p class="small">
+        Et lorsque les technologies seront disponibles, nous réaliserons des <strong>tests détaillés</strong> qui pourront intéressés les plus avertis d'entre vous.
+      </p>
+    </div>
+
+  </div>
+  <div class="section-right reliable-right">
+    <div class="reliable-schema" id="reliable-svg"></div>
+  </div>
+</section>
+<!--
+<section class="section" id="themes">
+  <div class="section-center">
+    <h2 class="section-title">
+      Autour de 3 thématiques
+    </h2>
+    <div class="section-list">
+      <div class="section-item">
+
+      </div>
+    </div>
+    <div class="themes-svg" id="themes-svg">
+
+    </div>
+
+  </div>
+</section>-->
+<section class="section articles" id="articles">
+  <div class="section-center articles-center">
+    <h2 class="section-title">
+      Votre avis est important
+    </h2>
+    <p>
+      Pour le premier article à venir, nous aimerions avoir votre avis.<br> Quelle est la thématique qui vous intéresse le plus&nbsp;?
+    </p>
+    <div class="articles-subscribe" id="articles-subscribe">
+
+      <div class="articles-list" >
+        <div class="section-item articles-item" id="article-1">
+          <div class="articles-item-margin articles-item-1">
+            <div class="articles-item-content">
+              <h3 class="articles-item-title">Bitcoin</h3>
+              Comment fonctionne le bitcoin et pourquoi y a t'il autant d'engouement autour de cette monnaie&nbsp;?
+            </div>
+          </div>
+        </div>
+        <div class="section-item articles-item" id="article-2">
+          <div class="articles-item-margin articles-item-2">
+            <div class="articles-item-content">
+              <h3 class="articles-item-title">paiement sans contact</h3>
+              Tout le monde l'utilise mais est-ce une si bonne idée&nbsp;? Et comment fonctionne cette technologie ?
+            </div>
+          </div>
+        </div>
+        <div class="section-item articles-item" id="article-3">
+          <div class="articles-item-margin articles-item-3">
+            <div class="articles-item-content">
+              <h3 class="articles-item-title">Machine learning</h3>
+              Cette technologie est sur toutes les lèvres mais d'où vient-elle&nbsp;? Quels sont ses potentiels&nbsp;?
+              Et quelle est son influence sur la stratégie des entreprises&nbsp;?
+            </div>
+          </div>
+        </div>
+        <div class="articles-item-form" id="articles-form">
+          <div class="articles-item-form-content">
+            <form>
+              <p>
+                En donnant votre avis, vous nous aider à rédiger les articles les plus utiles possibles et nous vous en remercions.
+              </p>
+              <input type="text" class="input" placeholder="Email">
+
+              <textarea class="textarea" placeholder="Commentaire"></textarea>
+
+              <div class="checkbox" id="checkbox">
+                <div class="checkbox-box" id="checkbox-box"></div> S'inscrire à la newsletter pour être tenu au courant de la sortie des articles.
+              </div>
+              <button class="button">Envoyer</button><span class="articles-item-form-separator"></span><span id="articles-cancel" class="button-light">Annuler</span>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="articles-subscribe-close" id="articles-close">
+        <span class="lnr lnr-cross"></span>
+      </div>
+    </div>
+    <!--<div class="themes-svg" id="themes-svg">
+
+    </div>-->
+
+  </div>
+</section>
+<!-- <section class="section articles" id="articles">
+  <div class="section-center articles-center">
+    <h2 class="section-title">
+      Inscrivez vous à la newer
+    </h2>
+    <p>
+      Pas d'avis ? Vous
+    </p>
+  </div>
+</section> -->
+<footer class="footer">
+  With <span class="lnr lnr-heart"></span> From Grenoble
+</footer>
+
+<!--
+
+
+<section class="section section-machine"></section>
+
+
+
+<section class="section section-top">
+  <div class="section-center- section-center-large" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <h2>Afin de rester acteur de son futur,<br> il est important de :</h2>
+  </div>
+  <div class="section-part-list" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <div class="section-part">
+      <span uk-icon="icon: world; ratio: 1.4"></span>
+      <div class="section-part-text">
+        Comprendre le monde qui nous entoure
+      </div>
+    </div>
+    <div class="section-part">
+      <span uk-icon="icon: search; ratio: 1.4"></span>
+      <div class="section-part-text">
+        Rester en vigilance en toute circonstance
+      </div>
+    </div>
+    <div class="section-part">
+      <span uk-icon="icon: heart; ratio: 1.4"></span>
+      <div class="section-part-text">
+        Embrasser les perspectives lorsqu’elles nous paraissent justes
+      </div>
+    </div>
+    <div class="section-part">
+      <span uk-icon="icon: warning; ratio: 1.4"></span>
+      <div class="section-part-text">
+        S’élever contre les choix qui nous paraissent trop dangereux
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-top">
+  <div class="section-center" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <p>
+      Cependant, à la vitesse où les technologies évoluent, il devient très difficile de les suivre sans faire plusieurs heures de veille par semaine.
+    </p>
+    <p>
+      De plus, il est parfois compliqué de comprendre en détails les aboutissants d’une technologie si l’on n’est pas du métier.
+    </p>
+  </div>
+</section>
+
+<section class="section section-top section-light">
+  <div class="section-center" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <p>
+      Techmind vous propose des articles de qualité, critiques et documentés pour vous expliquer les derniers progrès technologiques, leurs usages et leur conséquence sur notre génération et les générations à venir.
+    </p>
+    <p>
+      Nous présenterons des technologies encore à l’état de recherche ou qui sont d’ores et déjà utilisés mais peu connues du grand public.
+    </p>
+    <p class="important">
+      En comprenant ces technologies, vous pourrez ainsi mieux choisir celles qui correspondent à votre projet de vie, de société.
+    </p>
+  </div>
+</section>
+<section class="section section-top">
+  <div class="section-center" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <h2>Des articles adaptés à tous et fiables</h2>
+    <p>
+      Grâce à une approche progressive, chaque article proposera différents niveaux de lecture et permettra ainsi à tout un chacun de comprendre les problématiques qui nous concernent tous tout en allant plus loin pour les connaisseurs.
+    </p>
+    <p>
+      Les articles s’appuyeront sur des sources fiables.
+    </p>
+    <p>
+      Pour chaque nouvel article, nous irons chercher des experts adaptés afin que les faits expliqués soient les plus précis possibles.
+    </p>
+    <p>
+      Et lorsque les technologies seront disponibles, nous réaliserons des tests détaillés qui pourront intéressés les plus avertis d’entre vous.
+    </p>
+  </div>
+</section>
+<section class="section section-top">
+  <div class="section-center" uk-scrollspy="cls:uk-animation-fade; delay: 500">
+    <h2>3 grands domaines traités</h2>
+  </div>
+  <div class="section-three">
+    <div class="section-three-part">
+      <div class="section-three-part-inner section-three-part-inner-ai">
+      </div>
+      <div class="section-three-part-title">Intelligence artificielle
+        <div class="section-three-part-subtitle">
+          Robotique, assistant virtuel, agent décisionnel, drone, ...
+        </div>
+      </div>
+    </div>
+    <div class="section-three-part">
+      <div class="section-three-part-inner section-three-part-inner-car-concept"></div>
+      <div class="section-three-part-title">Intelligence ambiante
+        <div class="section-three-part-subtitle">
+          Domotique, IoT, véhicule autonome, ...
+        </div>
+      </div>
+    </div>
+    <div class="section-three-part">
+      <div class="section-three-part-inner section-three-part-inner-augmentations"></div>
+      <div class="section-three-part-title">Assistance
+        <div class="section-three-part-subtitle">
+          Réalité augmentée, prothèses, exosquelettes, ...
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-center">
+    <h2>3 problématiques</h2>
+    <p>
+
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  Made with <span class="footer-icon" uk-icon="icon: heart; ratio: 0.9"></span> in Grenoble
+</footer>
+-->
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="/scripts/index.js" ></script>
+{% endblock %}

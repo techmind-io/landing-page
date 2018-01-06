@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="icon" href="src/img/v.png" />
+    <title>{{title}}</title>
+
+    <meta name="description" content="{{description}}">
+
+    <!-- Schema.org meta for Google+ -->
+    <meta itemprop="name" content="{{title}}">
+    <meta itemprop="description" content="{{description}}">
+    <meta itemprop="image" content="{{preview}}">
+
+    <!-- Twitter Card meta -->
+    <meta name="twitter:card" content="{{preview}}">
+    <meta name="twitter:title" content="{{title}}">
+    <meta name="twitter:description" content="{{description}}">
+    <meta name="twitter:url" content="{{url}}" />
+    <meta name="twitter:domain" content="{{url}}" />
+
+    <!-- Open Graph meta -->
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:url" content="{{url}}"/>
+    <meta property="og:site_name" content="{{url}}"/>
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:image" content="{{preview}}"/>
+
+    <link rel="stylesheet" href="style/style.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+  </head>
+  <body>
+    {% block body %}
+    {% endblock %}
+    <!--<div class="tooltip-cookies">
+      <div class="tooltip-cookies-label">
+        En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer une meilleure expérience d'utilisation.
+      </div>
+      <span class="tooltip-cookies-close" uk-icon="icon: close"></span>
+    </div>-->
+  </body>
+  <!-- jQuery is required -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- UIkit JS -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script> -->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.3/svg.min.js"></script>
+  {% block scripts %}
+  {% endblock %}
+</html>
