@@ -312,7 +312,7 @@ $(document).ready(function () {
   $('#subscribe').click(function () {
     $('html, body').stop().animate({
     'scrollTop': $('#articles').offset().top
-    }, 900, 'swing', function () {
+      }, 2000, 'swing', function () {
     });
   });
 
@@ -341,15 +341,20 @@ $(document).ready(function () {
   }
 
 
+  var articleSelected = null;
+
   $('#article-1').click(function () {
+    articleSelected = 'Bitcoin';
     activate($(this));
   });
 
   $('#article-2').click(function () {
+    articleSelected = 'Paiement sans contact';
     activate($(this));
   });
 
   $('#article-3').click(function () {
+    articleSelected = 'Machine learning';
     activate($(this));
   });
 
@@ -369,6 +374,45 @@ $(document).ready(function () {
 
   $('#checkbox').click(function () {
     $('#checkbox-box').toggleClass('activated');
+  });
+
+  $('#subscribe-newsletter').click(function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const email = $('#email').val();
+    if (!isEmail(email)) {
+      console.log('is not email')
+      $('#subscribe-newsletter').addClass('animated shake');
+      $('#email').addClass('wrong');
+
+      setTimeout(function () {
+        $('#subscribe-newsletter').removeClass('animated shake');
+      }, 1000);
+      return;
+    }
+
+    $.post('/mailchimp/add', {email: $('#email').val(), comment: $('#comment').val(), first_article: articleSelected, newsletter: $('#checkbox-box').hasClass('activated')}, function (data) {
+      $('#articles-list').addClass('hide');
+      $('#articles-feedback').addClass('show');
+      console.log('data', data);
+    });
+
+  });
+
+  function isEmail (email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+  }
+
+  $('#email').bind('change keydown', function (event) {
+      console.log('change')
+      const email = $('#email').val();
+      if (isEmail(email)) {
+        $('#email').removeClass('wrong');
+      } /* else {
+        $('#email').addClass('wrong');
+      } */
   });
 
 

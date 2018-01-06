@@ -159,7 +159,14 @@
     </p>
     <div class="articles-subscribe" id="articles-subscribe">
 
-      <div class="articles-list" >
+      <div class="articles-feedback" id="articles-feedback">
+        <p>
+          Merci ! <br>En donnant votre avis, vous nous permettez de rédiger les articles les plus utiles possibles.
+        </p>
+
+      </div>
+
+      <div class="articles-list" id="articles-list">
         <div class="section-item articles-item" id="article-1">
           <div class="articles-item-margin articles-item-1">
             <div class="articles-item-content">
@@ -188,17 +195,17 @@
         <div class="articles-item-form" id="articles-form">
           <div class="articles-item-form-content">
             <form>
-              <p>
+              <!--<p>
                 En donnant votre avis, vous nous aider à rédiger les articles les plus utiles possibles et nous vous en remercions.
-              </p>
-              <input type="text" class="input" placeholder="Email">
+              </p>-->
+              <input type="text" class="input" placeholder="Email" id="email">
 
-              <textarea class="textarea" placeholder="Commentaire"></textarea>
+              <textarea class="textarea" placeholder="Commentaire (optionnel)" id="comment"></textarea>
 
               <div class="checkbox" id="checkbox">
-                <div class="checkbox-box" id="checkbox-box"></div> S'inscrire à la newsletter pour être tenu au courant de la sortie des articles.
+                <div class="checkbox-box activated" id="checkbox-box"></div> S'inscrire à la newsletter pour être informé de la sortie des articles.
               </div>
-              <button class="button">Envoyer</button><span class="articles-item-form-separator"></span><span id="articles-cancel" class="button-light">Annuler</span>
+              <button id="subscribe-newsletter" class="button">Envoyer</button><span class="articles-item-form-separator"></span><span id="articles-cancel" class="button-light">Annuler</span>
             </form>
           </div>
         </div>

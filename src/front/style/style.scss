@@ -259,6 +259,34 @@ p.small {
     }
   }
 
+  &-feedback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    opacity: 0;
+
+    @include transition(opacity linear 0.5s);
+
+
+    &.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+    }
+
+    p {
+      flex: 0 0 300px;
+      text-align: center;
+
+      color: $foreground;
+      font-size: 1.3em;
+    }
+  }
+
   &-list {
       display: flex;
       align-items: stretch;
@@ -266,6 +294,10 @@ p.small {
       flex-direction: row;
       padding-top: 30px;
       position: relative;
+
+      &.hide {
+        visibility: hidden;
+      }
   }
 
   &-item {
@@ -297,9 +329,11 @@ p.small {
       }
 
       &-content {
-        flex: 0 0 300px;
-        width: 300px;
+        flex: 0 0 320px;
+        width: 320px;
+        box-sizing: border-box;
         text-align: left;
+        padding: 10px;
 
         .button {
           margin-top: 20px;
@@ -323,6 +357,12 @@ p.small {
 
           &:focus {
             background: rgba(0, 0, 0, 0.4);
+          }
+        }
+
+        .input {
+          &.wrong {
+            border-color: red;
           }
         }
 
@@ -449,272 +489,9 @@ p.small {
 }
 
 .footer {
-  padding-top: 400px;
+  padding-top: 100px;
   padding-bottom: 50px;
   color: $foreground;
   // text-transform: uppercase;
   text-align: center;
 }
-
-
-/*
-
-.welcome {
-  position: relative;
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  canvas {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-  }
-
-  &-title {
-    position: relative;
-    color: $foreground;
-    @include fontTitle;
-    font-size: 3em;
-    margin: 0;
-    padding: 0;
-    z-index: 10;
-    // text-transform: uppercase;
-  }
-}
-
-.lang-selector {
-  @include only(medium) {
-    position: absolute;
-    top: 0;
-    right: 100px;
-    padding: 2px 15px;
-    // border-width: 0px 1px 1px 1px;
-    // border-style: solid;
-    // border-color: $foreground;
-    z-index: 4;
-    color: darken($foreground, 30%);
-    cursor: pointer;
-
-    @include transition($defaultFunction $defaultDuration color);
-
-    &:hover {
-      color: $foreground;
-    }
-  }
-  // background: $background;
-}
-
-.section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 0px;
-  flex-direction: column;
-  @include font;
-  text-align: center;
-
-
-  &-center {
-    max-width: 700px;
-    font-size: 1.2em;
-    text-align: center;
-    padding: 10px;
-
-    &-large {
-      max-width: 900px;
-    }
-  }
-
-  &-part {
-    flex: 0 0 25%;
-    font-size: 1.1em;
-
-    &-list {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      flex-direction: row;
-      padding: 30px 0px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-    }
-    &-text {
-      padding: 10px;
-    }
-  }
-
-  &-three {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    $height: 500px;
-    height: $height;
-    flex: 1 1 auto;
-    width: 100%;
-    overflow: hidden;
-
-    @include only(xsmall) {
-      flex-direction: column;
-    }
-
-    &-part {
-      flex: 1 1 auto;
-      overflow: hidden;
-      position: relative;
-
-      $duration: 0.25s;
-
-      &-inner {
-        background: white;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 10;
-
-        @include transitionAll($duration);
-
-        &-augmentations {
-          background: url('/img/augmentations-2.jpg');
-          background-position: center center;
-          background-size: cover;
-        }
-
-        &-car-concept {
-          background: url('/img/car-concept-2.jpg');
-          background-position: center center;
-          background-size: cover;
-        }
-
-        &-ai {
-          background: url('/img/ida.png');
-          background-position: left center;
-          background-size: cover;
-        }
-      }
-
-      &:hover &-inner {
-        @include transform(scale(1.1));
-      }
-
-      &-title {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 10%;
-        z-index: 20;
-        background: rgba(0, 0, 0, 0.7);
-        color: $foreground;
-        text-align: center;
-        @include transitionAll($duration);
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5em;
-        flex-direction: column;
-      }
-
-      &:hover &-title {
-        height: 100%;
-      }
-
-      &-subtitle {
-        height: 0px;
-        color: $foreground_hue1;
-        max-width: 70%;
-        opacity: 0;
-        @include transitionAll($duration);
-        line-height: 1.2em;
-        // font-size: 0.9em;
-      }
-
-      &:hover &-subtitle {
-        opacity: 1;
-      }
-
-    }
-  }
-
-  &-machine {
-    background: url('/img/crowd.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    height: 200px;
-  }
-
-  h2 {
-    @include font;
-    color: $foreground;
-    font-size: 1.4em;
-  }
-
-  p {
-    color: $foreground_hue1;
-
-    &.important {
-      color: $foreground;
-      font-size: 1.1em;
-    }
-  }
-
-  &-light {
-    background: $light;
-    color: $dark_hue1;
-
-    p.important {
-      color: $dark;
-      font-weight: 500 !important;
-    }
-  }
-
-}
-
-
-
-.footer {
-  text-align: center;
-  color: $foreground;
-  @include font;
-  padding: 10px;
-  position: relative;
-
-  &-icon {
-    position: relative;
-    top: -2px;
-
-  }
-}
-
-.tooltip-cookies {
-  // height: 70px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: $blue;
-  color: $foreground;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  &-label {
-    flex: 1 1 auto;
-    font-size: 0.85em;
-  }
-
-  &-close {
-    cursor: pointer;
-  }
-}*/
