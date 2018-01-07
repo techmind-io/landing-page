@@ -19,7 +19,7 @@ if ('production' !== process.env.NODE_ENV) {
 // https://github.com/thorning/node-mailchimp
 const mailchimp = new Mailchimp(process.env.MAILCHIMP_KEY);
 
-winston.info('config', {early_adopters: process.env.MAILCHIMP_LIST_EARLY_ADOPTERS});
+winston.info('config', {early_adopters: process.env.MAILCHIMP_LIST_EARLY_ADOPTERS, newsletter: process.env.MAILCHIMP_LIST_NEWSLETTER});
 
 let bot = null;
 if (process.env.SLACK_BOT_TOKEN && process.env.SLACK_CHANNEL) {
