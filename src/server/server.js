@@ -46,8 +46,8 @@ app.get('/', (req, res) => {
   res.render('index', {
     title: 'Techmind',
     url: process.env.HOST,
-    preview: '',
-    description: 'description',
+    preview: `${process.env.HOST}/img/preview.png`,
+    description: 'Comprendre les nouvelles technologies qui nous entourent devient indispensable. Techmind vous propose des articles de qualité, critiques et documentés pour vous faire découvrir les derniers progrès technologiques, leurs usages et leurs conséquences sur notre société.',
   });
 });
 
