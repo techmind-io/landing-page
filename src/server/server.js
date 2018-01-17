@@ -48,6 +48,8 @@ app.get('/', (req, res) => {
     url: process.env.HOST,
     preview: `${process.env.HOST}/img/preview.png`,
     preview_facebook: `${process.env.HOST}/img/preview-facebook.png`,
+    preview_google_plus: `${process.env.HOST}/img/preview-google+.png`,
+    preview_twitter: `${process.env.HOST}/img/preview-facebook.png`,
     description: 'Comprendre les nouvelles technologies qui nous entourent devient indispensable. Techmind vous propose des articles de qualité, critiques et documentés pour vous faire découvrir les derniers progrès technologiques, leurs usages et leurs conséquences sur notre société.',
   });
 });
