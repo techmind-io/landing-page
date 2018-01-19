@@ -394,8 +394,21 @@ $(document).ready(function () {
     }
 
     $.post('/mailchimp/add', {email: $('#email').val(), comment: $('#comment').val(), first_article: articleSelected, newsletter: $('#checkbox-box').hasClass('activated')}, function (data) {
-      $('#articles-list').addClass('hide');
-      $('#articles-feedback').addClass('show');
+      $('#articles-list').addClass('hiding');
+      setTimeout(function () {
+        $('#articles-list').addClass('hide');
+        $('#articles-feedback').addClass('show-first');
+
+        setTimeout(function () {
+          $('#articles-feedback').addClass('show');
+        }, 50);
+      }, 200);
+
+      $('#articles-help').slideUp();
+
+
+
+
       console.log('data', data);
     });
 
@@ -427,5 +440,15 @@ $(document).ready(function () {
     $('#continue').removeClass('welcome-bottom-center-hide');
   }, 1500);
 
+  $('#articles-help-title').click(function () {
+    $('#articles-help-link-list').slideDown();
+    $('#articles-help-title').slideUp();
+  });
+
+  $('#articles-help-link-list').slideUp(0);
+
+  $('#contact-me').click(function () {
+    window.location.href = 'mailto:thibault.friedrich@gmail.com';
+  });
 
 });

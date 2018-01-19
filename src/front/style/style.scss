@@ -5,6 +5,13 @@
 @import 'section';
 @import 'button';
 
+@import url(http://weloveiconfonts.com/api/?family=zocial);
+/* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+
 @mixin noSelect {
   user-select: none;
   -moz-user-select: none;
@@ -318,6 +325,11 @@ p.small {
 
     @include transition(opacity linear 0.5s);
 
+    &.show-first {
+      display: flex;
+      opacity: 0;
+    }
+
 
     &.show {
       display: flex;
@@ -326,12 +338,12 @@ p.small {
       opacity: 1;
     }
 
-    p {
-      flex: 0 0 300px;
+    &-content {
+      flex: 0 0 500px;
       text-align: center;
 
       color: $foreground;
-      font-size: 1.3em;
+      font-size: 1.1em;
     }
   }
 
@@ -343,9 +355,58 @@ p.small {
       padding-top: 30px;
       position: relative;
 
+      opacity: 1;
+      @include transition(opacity linear 0.2s);
+
+      &.hiding {
+        opacity: 0;
+      }
+
       &.hide {
         visibility: hidden;
       }
+
+
+  }
+
+  &-help {
+    padding-top: 40px;
+
+    &-title {
+      font-size: 0.7em;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &-link {
+      color: $foreground_hue1;
+      @include transition(all linear 0.2s);
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.9em;
+      // display: block;
+
+      &:hover {
+        color: $foreground;
+      }
+
+      &-list {
+        padding-top: 10px;
+        color: $foreground;
+        font-size: 0.8em;
+
+        .small {
+          max-width: 400px;
+          margin: auto;
+          padding-top: 40px;
+          font-size: 0.8em;
+          color: $foreground_hue1;
+        }
+      }
+    }
+
   }
 
   &-item {
@@ -542,4 +603,35 @@ p.small {
   color: $foreground;
   // text-transform: uppercase;
   text-align: center;
+
+  &-social {
+    color: $foreground;
+    opacity: 0.5;
+    @include transition(all linear 0.3s);
+    &, &:hover, &:visited, &:focus {
+      margin: 0px 20px;
+      text-decoration: none;
+      outline: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &-list {
+      padding: 10px 0px;
+    }
+  }
+
+  &-end {
+    padding-bottom: 20px;
+    font-size: 0.8em;
+    color: $foreground_hue1;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
