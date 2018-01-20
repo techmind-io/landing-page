@@ -23,10 +23,19 @@ html {
   //color: $foreground !important;
   @include font;
   height: 100%;
-  @include linearGradient(-135deg, $darkBlue, $black);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  position: relative;
+  background-color: $black;
+  // @include radialGradient(top right, $darkBlue, $black);
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+
+  @include only(large) {
+    @include linearGradient(-135deg, $darkBlue, $black);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+
+  }
+
 
 }
 
@@ -55,39 +64,44 @@ p.small {
   // min-height: 100%;
 
   &-background {
-    // background: url('/img/eye.png');
-    // background-size: contain;
-    // background-position: center center;
-    // background-repeat: no-repeat;
-    // position: absolute;
-    // top: 0;
-    // bottom: 0;
-    // left: 0;
-    // right: 0;
     height: 100%;
     width: 100%;
-    opacity: 0.09;
     z-index: 10;
-    // box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 white;
 
+    background: url('/img/eye6.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    @include only(large) {
+      background: none;
+      opacity: 0.09;
+    }
   }
 
   &-title {
     position: relative;
     color: $foreground;
     @include fontTitle;
-    font-size: 8em;
+    font-size: 3em;
+    text-align: center;
+    @include only(large) {
+      font-size: 8em;
+      text-align: left;
+    }
     margin: 0;
     padding: 0;
     font-weight: bold;
   }
 
   &-container {
-    position: absolute;
-    top: 0px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    // @include only(large) {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    // }
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,7 +110,10 @@ p.small {
 
     &-title {
       position: relative;
-      top: 690px;
+
+      @include only(large) {
+        top: 690px;
+      }
     }
   }
 
@@ -105,7 +122,12 @@ p.small {
     color: $foreground;
     margin: 0;
     padding: 0;
-    font-size: 1.9em;
+    font-size: 1em;
+    text-align: center;
+    @include only(large) {
+      font-size: 1.9em;
+      text-align: left;
+    }
     font-weight: normal;
   }
 
@@ -118,15 +140,14 @@ p.small {
   }
 
   &-bottom {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
+
+    // @include only(large) {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+    // }
     z-index: 10000;
-
-
-
-
 
     text-align: center;
 
@@ -173,16 +194,22 @@ p.small {
     position: relative;
     overflow: hidden;
     &-content {
-      position: relative;
-      top: 0;
-      right: 100%;
+      // @include only(large) {
+
+        position: relative;
+        top: 0;
+        right: 100%;
+      // }
     }
   }
   &-right {
     position: relative;
-    // height: 100%;
-    height: 500px;
     overflow: hidden;
+
+    height: 350px;
+    @include only(large) {
+      height: 500px;
+    }
 
     &-background {
       position: absolute;
@@ -190,8 +217,18 @@ p.small {
       left: 100%;
       width: 100%;
       height: 100%;
-      background: url('/img/crowd.png');
+
+      background: url('/img/crowd.jpg');
       background-size: cover;
+      background-attachment: fixed;
+
+
+      @include only(large) {
+        background: url('/img/crowd.png');
+        background-size: cover;
+        background-attachment: no;
+
+      }
     }
   }
 }
@@ -230,7 +267,13 @@ p.small {
   }
 
   &-left {
+    display: none;
+
+    @include only(large) {
+      display: block;
+    }
     justify-content: center;
+    text-align: center;
   }
 
   &-schema {
@@ -252,6 +295,13 @@ p.small {
 
   &-right {
     justify-content: center;
+
+    display: none;
+    text-align: center;
+
+    @include only(large) {
+      display: block;
+    }
   }
 }
 
@@ -342,23 +392,29 @@ p.small {
   }
 
   &-list {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: column;
+    @include only(large) {
+
+
       flex-direction: row;
-      padding-top: 30px;
-      position: relative;
+    }
+    padding-top: 30px;
+    position: relative;
 
-      opacity: 1;
-      @include transition(opacity linear 0.2s);
+    opacity: 1;
+    @include transition(opacity linear 0.2s);
 
-      &.hiding {
-        opacity: 0;
-      }
+    &.hiding {
+      opacity: 0;
+    }
 
-      &.hide {
-        visibility: hidden;
-      }
+    &.hide {
+      visibility: hidden;
+    }
 
 
   }
@@ -520,29 +576,50 @@ p.small {
 
     &.hide {
       flex-basis: 0px;
-      // margin-left: 0px;
-      // margin-right: 0px;
     }
 
     // border: 1px solid $foreground;
 
     $height: 500px;
-    height: $height;
     color: $foreground_hue2;
     padding: 0px;
 
+    width: 100%;
 
-    flex: 0 1 330px;
+    flex: 0 1 200px;
+
+    @include only(large) {
+      height: $height;
+      width: auto;
+      flex: 0 1 330px;
+    }
 
     &-margin {
       margin: 0px 30px;
       box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.3);
+
+      height: 100%;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      @include only(large) {
+        height: auto;
+        position: relative;
+
+      }
     }
 
     &-content {
       box-sizing: border-box;
       padding: 30px;
-      height: $height;
+      height: 100%;
+      @include only(large) {
+        height: $height;
+      }
 
       background: rgba(0, 0, 0, 0);
       @include transition(linear background-color 0.3s);

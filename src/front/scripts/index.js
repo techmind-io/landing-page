@@ -111,6 +111,12 @@ $(document).ready(function () {
     "retina_detect": true
   });*/
 
+  $('#welcome').height($(window).height());
+
+  $(window).resize(function () {
+    $('#welcome').height($(window).height());
+  });
+
   const controller = new ScrollMagic.Controller();
   new ScrollMagic.Scene({offset: -200, triggerElement: '#technologies', duration: 400})
   .on("progress", function (e) {
@@ -122,35 +128,6 @@ $(document).ready(function () {
   .on("progress", function (e) {
     // console.log('progress', e.progress)
     $('#technologies-left-content').css('right', (100 - e.progress * 100) + '%');
-  }).addTo(controller);
-
-  /*
-  for (var i = 0 ; i < 4 ; i++) {
-    new ScrollMagic.Scene({offset: i * 80, triggerElement: '#important', duration: 100})
-    .on("progress", function (e) {
-      console.log('progress', e)
-      $('#important-' + (i + 1)).css('opacity', e.progress);
-    }).addTo(controller);
-  }*/
-
-  new ScrollMagic.Scene({offset: 0, triggerElement: '#important', duration: 200})
-  .on("progress", function (e) {
-    $('#important-' + 1).css('opacity', e.progress);
-  }).addTo(controller);
-
-  new ScrollMagic.Scene({offset: 80, triggerElement: '#important', duration: 200})
-  .on("progress", function (e) {
-    $('#important-' + 2).css('opacity', e.progress);
-  }).addTo(controller);
-
-  new ScrollMagic.Scene({offset: 160, triggerElement: '#important', duration: 200})
-  .on("progress", function (e) {
-    $('#important-' + 3).css('opacity', e.progress);
-  }).addTo(controller);
-
-  new ScrollMagic.Scene({offset: 240, triggerElement: '#important', duration: 200})
-  .on("progress", function (e) {
-    $('#important-' + 4).css('opacity', e.progress);
   }).addTo(controller);
 
   new ScrollMagic.Scene({offset: -400, triggerElement: '#techmind', duration: 400})
@@ -173,23 +150,125 @@ $(document).ready(function () {
     $('#reliable-left-content').css('right', (100 - e.progress * 100) + '%');
   }).addTo(controller);
 
-/*
-  const sqrt3 = 1.73;
-  const width = 100;
-  const margin = 100;
-  const height = width * sqrt3;
-  const draw = SVG('themes-svg').size(2 * (width + margin), height + 2 * margin);
+  /*
 
-  //const triangle = draw.polygon([[width, height / 2], [width, height / 2], [width, height / 2]]).fill('none').stroke({width: 4, color: 'white'});
-  draw.polygon([[width + margin, margin], [margin + 2 * width, margin + height], [margin, margin + height]]).fill('none').stroke({width: 25, color: 'white'});
-  //draw.animate(2000).polyline([width + margin, margin, margin + 2 * width, margin + height, margin, margin + height].join(', '))
-*/
+  new ScrollMagic.Scene({offset: 0, triggerElement: '#important', duration: 200})
+  .on("progress", function (e) {
+    $('#important-' + 1).css('opacity', e.progress);
+  }).addTo(controller);
 
-  $('#welcome').height($(window).height());
+  new ScrollMagic.Scene({offset: 80, triggerElement: '#important', duration: 200})
+  .on("progress", function (e) {
+    $('#important-' + 2).css('opacity', e.progress);
+  }).addTo(controller);
 
-  $(window).resize(function () {
-    $('#welcome').height($(window).height());
-  });
+  new ScrollMagic.Scene({offset: 160, triggerElement: '#important', duration: 200})
+  .on("progress", function (e) {
+    $('#important-' + 3).css('opacity', e.progress);
+  }).addTo(controller);
+
+  new ScrollMagic.Scene({offset: 240, triggerElement: '#important', duration: 200})
+  .on("progress", function (e) {
+    $('#important-' + 4).css('opacity', e.progress);
+  }).addTo(controller);
+
+  */
+
+  if ($(window).width() > 1000) {
+
+
+
+
+
+
+
+
+
+
+  /*
+    const sqrt3 = 1.73;
+    const width = 100;
+    const margin = 100;
+    const height = width * sqrt3;
+    const draw = SVG('themes-svg').size(2 * (width + margin), height + 2 * margin);
+
+    //const triangle = draw.polygon([[width, height / 2], [width, height / 2], [width, height / 2]]).fill('none').stroke({width: 4, color: 'white'});
+    draw.polygon([[width + margin, margin], [margin + 2 * width, margin + height], [margin, margin + height]]).fill('none').stroke({width: 25, color: 'white'});
+    //draw.animate(2000).polyline([width + margin, margin, margin + 2 * width, margin + height, margin, margin + height].join(', '))
+  */
+
+
+
+    if (SVG.supported) {
+      // accessible svg
+
+      /*(function () {
+        const draw = SVG('accessible-svg').size(120, 300);
+        // draw.path('M0 0 H50 A20 20 0 1 0 100 50 v25 C50 125 0 85 0 85 z').stroke({width: 2, color: 'white'})
+
+        const circle = draw.circle(60).center(60, 60).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)')
+        const circle2 = draw.circle(60).center(60, 160).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)')
+        const circle3 = draw.circle(60).center(60, 260).stroke({width: 2, color: 'white', linecap: 'round', dasharray:'1, 5'}).fill('rgba(0, 0, 0, 0)')
+        const line = draw.line(60, 90, 60, 130).stroke({width: 2, color: 'white'})
+        const line2 = draw.line(60, 190, 60, 230).stroke({width: 2, color: 'white', linecap: 'round', dasharray:'1, 5'})
+        // draw.path('M5 20 l215 0').stroke({width: 2, color: 'white'})
+
+
+        const text = draw.text('1').center(60, 60).font({fill: '#fff', family: 'Didact Gothic' })
+        const text2 = draw.text('2').center(60, 160).font({fill: '#fff', family: 'Didact Gothic' })
+        const text3 = draw.text('3').center(60, 260).font({fill: '#fff', family: 'Didact Gothic' })
+
+
+      }());*/
+
+      (function () {
+        const draw = SVG('welcome-background');
+        const group = draw.group();
+        const laptopContent = draw.image('./img/eye5.png', '100%', '100%').move(0, 0);
+        group.add(laptopContent);
+
+        const radial = draw.gradient('radial', function (stop) {
+          stop.at(0.25, '#fff');
+          stop.at(0.5, '#000');
+        }).radius(1);
+        const circle = draw.circle(0).center(1100, -200).fill({color: radial});
+        const mask = draw.mask().add(circle);
+        group.maskWith(mask);
+
+
+        new ScrollMagic.Scene({offset: 0, duration: 1400})
+        .setPin("#welcome") // pins the element for the the scene's duration
+        .on("progress", function (e) {
+          let newRadius = 1250 * e.progress;
+          if (newRadius > 950) {
+            newRadius = 950;
+          }
+          circle.radius(/* 950 */ newRadius);
+
+          if (e.progress > 0.8) {
+            console.log('progress', e.progress);
+            $('#welcome-title').css('top', 900 * (5 - 5 * e.progress) + 90);
+          }
+        }).addTo(controller);
+
+      }());
+
+    }
+
+
+    // scroll only on large screen
+    if ($('html').scrollTop() === 0) {
+      console.log('need to scroll');
+      $('html, body').stop().animate({
+        'scrollTop': 1400
+      }, 900, 'swing', function () {
+        // window.location.hash = target;
+      });
+    }
+
+
+  }
+
 
   if (SVG.supported) {
     // accessible svg
@@ -197,117 +276,28 @@ $(document).ready(function () {
       const draw = SVG('accessible-svg').size(120, 300);
       // draw.path('M0 0 H50 A20 20 0 1 0 100 50 v25 C50 125 0 85 0 85 z').stroke({width: 2, color: 'white'})
 
-      const circle = draw.circle(60).center(60, 60).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)')
-      const circle2 = draw.circle(60).center(60, 160).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)')
-      const circle3 = draw.circle(60).center(60, 260).stroke({width: 2, color: 'white', linecap: 'round', dasharray:'1, 5'}).fill('rgba(0, 0, 0, 0)')
-      const line = draw.line(60, 90, 60, 130).stroke({width: 2, color: 'white'})
-      const line2 = draw.line(60, 190, 60, 230).stroke({width: 2, color: 'white', linecap: 'round', dasharray:'1, 5'})
-      // draw.path('M5 20 l215 0').stroke({width: 2, color: 'white'})
+      draw.circle(60).center(60, 60).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)');
+      draw.circle(60).center(60, 160).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)');
+      draw.circle(60).center(60, 260).stroke({width: 2, color: 'white', linecap: 'round', dasharray:'1, 5'}).fill('rgba(0, 0, 0, 0)');
+      draw.line(60, 90, 60, 130).stroke({width: 2, color: 'white'});
+      draw.line(60, 190, 60, 230).stroke({width: 2, color: 'white', linecap: 'round', dasharray:'1, 5'});
 
-
-      const text = draw.text('1').center(60, 60).font({fill: '#fff', family: 'Didact Gothic' })
-      const text2 = draw.text('2').center(60, 160).font({fill: '#fff', family: 'Didact Gothic' })
-      const text3 = draw.text('3').center(60, 260).font({fill: '#fff', family: 'Didact Gothic' })
-
-
+      draw.text('1').center(60, 60).font({fill: '#fff', family: 'Didact Gothic'});
+      draw.text('2').center(60, 160).font({fill: '#fff', family: 'Didact Gothic'});
+      draw.text('3').center(60, 260).font({fill: '#fff', family: 'Didact Gothic'});
     }());
 
     (function () {
-      // https://developer.mozilla.org/fr/docs/Web/SVG/Tutoriel/Paths
 
       const draw = SVG('reliable-svg').size(152, 152);
 
       // draw.rect(210, 300).move(50, 0).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)');
       draw.path('M25 85 l30 30 l70 -70').stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)');
-      const circle = draw.circle(150).center(76, 76).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)')
-
-
-      // draw.path('M120 110 h180').stroke({width: 3, color: 'rgba(255, 255, 255, 0.1)'});
-      // draw.path('M80 160 h250').stroke({width: 3, color: 'rgba(255, 255, 255, 0.1)'});
-      // draw.path('M120 210 h180').stroke({width: 3, color: 'rgba(255, 255, 255, 0.1)'});
-
-      // draw.path('M150 150 l50 50 l100 -100').stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)');
-      // draw.path('M150 150 l50 50 l100 -100').stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)');
-
-
-
+      draw.circle(150).center(76, 76).stroke({width: 2, color: 'white'}).fill('rgba(0, 0, 0, 0)');
     }());
-
-
-    (function () {
-      const draw = SVG('welcome-background');
-      const group = draw.group();
-      const laptopContent = draw.image('./img/eye5.png', '100%', '100%').move(0, 0);
-      group.add(laptopContent);
-
-      const radial = draw.gradient('radial', function (stop) {
-        stop.at(0.25, '#fff');
-         stop.at(0.5, '#000');
-      }).radius(1);
-      const circle = draw.circle(0).center(1100, -200).fill({color: radial});
-      const mask = draw.mask().add(circle);
-      group.maskWith(mask);
-
-
-      new ScrollMagic.Scene({offset: 0, duration: 1400})
-      .setPin("#welcome") // pins the element for the the scene's duration
-      .on("progress", function (e) {
-        let newRadius = 1250 * e.progress;
-        if (newRadius > 950) {
-          newRadius = 950;
-        }
-        circle.radius(/* 950 */ newRadius);
-
-        if (e.progress > 0.8) {
-          console.log('progress', e.progress);
-          $('#welcome-title').css('top', 900 * (5 - 5 * e.progress) + 90);
-        }
-      }).addTo(controller);
-    }());
-
-
-
-    // const radial = draw.gradient('radial', function (stop) {
-    //   stop.at(0.25, '#fff');
-    //    stop.at(0.5, '#000');
-    // }).radius(1);
-
-
-
-    // var gradient = draw.gradient('linear', function (stop) {
-    //   stop.at(0, '#fff');
-    //   // stop.at(0.7, '#000');
-    //   stop.at(0.7, '#000');
-    //   /*stop.at(0, '#000');
-    //   stop.at(0.1, '#fff');
-    //   stop.at(0.9, '#fff');
-    //   stop.at(1, '#000');*/
-    // }).from(1, 0).to(0, 1)
-
-    // const rect = draw.rect('100%', '100%').move('0%', 0thibault).fill({color: gradient})
-
-
-
-
-    // const rect = draw.ellipse(1000, 300).center(800, 300).fill({color: radial});
-
-
-
-    // create a circle and color it with the gradient
-    // const circle = draw.circle(1000).center(900, 100).fill({color: radial});
-
-
-    if ($('html').scrollTop() === 0) {
-      console.log('need to scroll');
-      $('html, body').stop().animate({
-      'scrollTop': 1400
-      }, 900, 'swing', function () {
-          // window.location.hash = target;
-      });
-    }
-
-
   }
+
+
 
 
   $('#subscribe').click(function () {
@@ -317,12 +307,7 @@ $(document).ready(function () {
     });
   });
 
-  function activate(target) {
-    /*$('html, body').stop().animate({
-    'scrollTop': $('#articles-subscribe').offset().top
-  }, 900, 'swing', function () {*/
-      // $('#articles-subscribe').animate({height:$(window).height()}, 300);
-      // $('#articles-subscribe').addClass('activated');
+  function activate (target) {
       $('.articles-item').removeClass('activated');
       $('.articles-item').addClass('hiding');
       target.removeClass('hiding');
@@ -337,8 +322,6 @@ $(document).ready(function () {
       }, 500);
 
       target.addClass('activated');
-        // window.location.hash = target;
-    //});
   }
 
 
@@ -420,7 +403,6 @@ $(document).ready(function () {
   }
 
   $('#email').bind('change keydown', function (event) {
-      console.log('change')
       const email = $('#email').val();
       if (isEmail(email)) {
         $('#email').removeClass('wrong');
@@ -449,8 +431,8 @@ $(document).ready(function () {
 
   $('#contact-me').click(function () {
     const first = 'thibault.';
-    const last = 'friedrich'
-    window.location.href = 'mailto:thibault.friedrich@gmail.com';
+    const last = 'friedrich';
+    window.location.href = 'mailto:' + first + last + '@gmail.com';
   });
 
 });

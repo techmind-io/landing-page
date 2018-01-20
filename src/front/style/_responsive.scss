@@ -12,7 +12,7 @@
   }
 
   @else if $class == large {
-    @media (min-width: 1200px) { @content; }
+    @media (min-width: 1000px) { @content; }
   }
 
   @else {

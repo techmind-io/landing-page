@@ -1,13 +1,16 @@
 .section {
-  min-height: 75%;
+  width: 100%;
   position: relative;
   @include fontTitle;
-  font-size: 1.6em;
   color: $foreground_hue1;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  @include only(large) {
+    min-height: 75%;
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 
   p {
     margin: 0.5em 0px;
@@ -16,9 +19,12 @@
   &-title {
     font-weight: normal;
     color: $foreground;
-    font-size: 1.5em;
     line-height: 1.1em;
     margin-top: 0;
+
+    @include only(large) {
+      font-size: 1.5em;
+    }
   }
 
   &-left, &-right {
@@ -28,7 +34,7 @@
     align-items: center;
 
     &-content {
-      padding: 90px!important;
+
       max-width: 450px;
       // line-height: 1.4em;
     }
@@ -43,10 +49,17 @@
   }
 
   &-center {
-    padding: 90px!important;
     text-align: center;
     // max-width: 800px;
     margin: auto;
+  }
+
+  &-left-content, &-right-content, &-center {
+    padding: 45px 20px!important;
+
+    @include only(large) {
+      padding: 90px!important;
+    }
   }
 
   &-list {
