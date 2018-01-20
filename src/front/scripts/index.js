@@ -284,7 +284,7 @@ $(document).ready(function () {
     //   stop.at(1, '#000');*/
     // }).from(1, 0).to(0, 1)
 
-    // const rect = draw.rect('100%', '100%').move('0%', 0).fill({color: gradient})
+    // const rect = draw.rect('100%', '100%').move('0%', 0thibault).fill({color: gradient})
 
 
 
@@ -448,6 +448,8 @@ $(document).ready(function () {
   $('#articles-help-link-list').slideUp(0);
 
   $('#contact-me').click(function () {
+    const first = 'thibault.';
+    const last = 'friedrich'
     window.location.href = 'mailto:thibault.friedrich@gmail.com';
   });
 
