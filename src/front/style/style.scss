@@ -108,6 +108,12 @@ p.small {
     flex-direction: column;
     z-index: 5;
 
+    background: rgba($darkBlue, 0.7);
+
+    @include only(large) {
+      background: transparent;
+    }
+
     &-title {
       position: relative;
 
@@ -387,7 +393,19 @@ p.small {
       text-align: center;
 
       color: $foreground;
-      font-size: 1.1em;
+      font-size: 1em;
+
+      &-citation {
+        text-align: left;
+        color: $foreground_hue1;
+        padding-top: 20px;
+        font-size: 0.8em;
+
+        &-author {
+          text-align: right;
+        }
+
+      }
     }
   }
 

@@ -118,34 +118,34 @@ $(document).ready(function () {
   });
 
   const controller = new ScrollMagic.Controller();
-  new ScrollMagic.Scene({offset: -200, triggerElement: '#technologies', duration: 400})
+  new ScrollMagic.Scene({offset: -400, triggerElement: '#technologies', duration: 400})
   .on("progress", function (e) {
     // console.log('progress', e.progress)
     $('#background').css('left', (100 - e.progress * 100) + '%');
   }).addTo(controller);
 
-  new ScrollMagic.Scene({offset: -200, triggerElement: '#technologies', duration: 400})
+  new ScrollMagic.Scene({offset: -400, triggerElement: '#technologies', duration: 400})
   .on("progress", function (e) {
     // console.log('progress', e.progress)
     $('#technologies-left-content').css('right', (100 - e.progress * 100) + '%');
   }).addTo(controller);
 
-  new ScrollMagic.Scene({offset: -400, triggerElement: '#techmind', duration: 400})
+  new ScrollMagic.Scene({offset: -600, triggerElement: '#techmind', duration: 400})
   .on("progress", function (e) {
     $('#techmind-center').css('top', 800 * (1 - e.progress));
   }).addTo(controller);
 
-  new ScrollMagic.Scene({offset: -100, triggerElement: '#techmind', duration: 400})
+  new ScrollMagic.Scene({offset: -200, triggerElement: '#techmind', duration: 400})
   .on("progress", function (e) {
     $('#techmind-center').css('opacity', e.progress);
   }).addTo(controller);
 
-  new ScrollMagic.Scene({offset: -200, triggerElement: '#accessible', duration: 400})
+  new ScrollMagic.Scene({offset: -400, triggerElement: '#accessible', duration: 400})
   .on("progress", function (e) {
     $('#accessible-right-content').css('left', (100 - e.progress * 100) + '%');
   }).addTo(controller);
 
-  new ScrollMagic.Scene({offset: -200, triggerElement: '#reliable', duration: 400})
+  new ScrollMagic.Scene({offset: -400, triggerElement: '#reliable', duration: 400})
   .on("progress", function (e) {
     $('#reliable-left-content').css('right', (100 - e.progress * 100) + '%');
   }).addTo(controller);
