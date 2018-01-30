@@ -58,6 +58,18 @@ p.small {
 }
 
 
+.separator {
+  text-align: center;
+  padding: 30px 0px;
+  &:before {
+    display: inline-block;
+    width: 300px;
+    height: 1px;
+    background-color: $foreground;
+    content: " ";
+  }
+}
+
 
 .welcome {
   position: relative;
